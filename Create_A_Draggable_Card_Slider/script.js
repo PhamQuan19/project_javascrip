@@ -1,7 +1,15 @@
 const carousel =document.querySelector(".carousel");
+const arrowBtns =document.querySelectorAll(".wrapper i");
+const firstCarWith = carousel.querySelector(".card").offsetWidth;
 
 let isDragging=false , isAutoPlay = true, startX, startScrollLeft, timeoutId;
 
+
+arrowBtns.forEach(btn =>{
+    btn.addEventListener("click", () =>{
+        carousel.scrollLeft += btn.id === "left" ? -firstCarWith : firstCarWith;
+    });
+});
 const dragStart = (e) =>{
     isDragging=true;
     carousel.classList.add("dragging");
