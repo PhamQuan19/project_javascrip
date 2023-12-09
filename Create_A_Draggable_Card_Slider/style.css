@@ -55,13 +55,20 @@ body{
     scrollbar-width: 0;
 }
 
+.carousel::-webkit-scrollbar{
+    display: none;
+}
 .carousel :where(.card, .img){
     display: flex;
     align-items: center;
     justify-content: center;
     
 }
+.carousel.no-transition{
+    scroll-behavior: auto;
+}
 .carousel.dragging {
+    scroll-snap-type: none;
     scroll-behavior: auto;
 }
 .carousel.dragging .card{
@@ -69,6 +76,7 @@ body{
     user-select: none;
 }
 .carousel .card{
+    scroll-snap-align: start;
     height: 342px;
     list-style: none;
     background: #fff;
